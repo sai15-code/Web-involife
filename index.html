@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Involife — Smart Beginner Investment Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Invo<span>life</span></div>
+  <div class="nav-links">
+    <a onclick="showPage('landing')">Home</a>
+    <a onclick="showPage('learning')">Learn</a>
+    <a onclick="showPage('recommendation')">Recommend</a>
+    <a onclick="showPage('platforms')">Platforms</a>
+    <a onclick="showPage('dashboard')">Dashboard</a>
+  </div>
+  <button class="nav-cta" id="nav-cta-btn" onclick="openNavProfile()">Get Started</button>
+</nav>
+<button class="page-back" id="page-back-btn" onclick="goBackPage()">← Back</button>
+
+<!-- ===== LANDING PAGE ===== -->
+<div id="landing" class="page active">
+  <div class="hero">
+    <div class="hero-badge">🚀 Smart Investing for Beginners</div>
+    <div class="hero-pretitle">Answer <span>3 questions</span> → Get your personalized investment plan</div>
+    <h1>Start Your Investment<br>Journey Today</h1>
+    <p>Stop wondering where to start. Get personalized guidance, a readiness score, and a clear roadmap built around your goals.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" id="hero-get-started-btn" onclick="openNavProfile()">Get Started — It's Free</button>
+      <button class="btn-secondary" onclick="showPage('learning')">Explore Learning Hub</button>
+    </div>
+    <div class="trust-row">
+      <div class="trust-pill">🇮🇳 Built for beginners in India</div>
+      <div class="trust-pill">🛡️ Beginner-friendly guidance</div>
+      <div class="trust-pill">📈 Personalized investment plan</div>
+    </div>
+    <div class="stats-row">
+      <div class="stat"><div class="stat-num">4+</div><div class="stat-label">Investment Types</div></div>
+      <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Free to Use</div></div>
+      <div class="stat"><div class="stat-num">0</div><div class="stat-label">Jargon Required</div></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="problem-section">
+      <div>
+        <h2 class="section-title">Most beginners give up before they start</h2>
+        <div class="problem-highlight">90% beginners never start investing</div>
+        <p style="color:var(--muted);margin-bottom:1.5rem;line-height:1.7;font-size:0.95rem;">Investing feels overwhelming — too many options, too much jargon, and fear of making the wrong move.</p>
+        <ul class="problem-list">
+          <li>No idea where to begin or which app to use</li>
+          <li>Overwhelmed by financial jargon (NAV, XIRR, P/E...)</li>
+          <li>Afraid of losing money, so they never start</li>
+          <li>No personalized guidance — just generic advice</li>
+        </ul>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:5rem;margin-bottom:1rem;">🎯</div>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.7;">Involife solves all of this with personalized onboarding, a readiness score, and step-by-step guidance.</p>
+        <button class="btn-primary" id="problem-get-started-btn" style="margin-top:1.5rem;" onclick="openNavProfile()">Get My Investment Plan</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">Everything you need to start</h2>
+    <p class="section-sub">From learning basics to getting a personalized plan — all in one place.</p>
+    <div class="features-grid">
+      <div class="feature-card" role="button" tabindex="0" data-feature="score" onclick="openFeature('score')" onkeydown="triggerFeatureFromKey(event,'score')">
+        <div class="feature-icon">📊</div>
+        <h3>Investment Readiness Score</h3>
+        <p>Know if you're ready to start investing today based on your budget, risk tolerance and knowledge.</p>
+        <div class="feature-footer"><span class="feature-tag">Dashboard</span><button class="feature-open" onclick="event.stopPropagation();openFeature('score')">Open Score</button></div>
+      </div>
+      <div class="feature-card" role="button" tabindex="0" data-feature="learning" onclick="openFeature('learning')" onkeydown="triggerFeatureFromKey(event,'learning')">
+        <div class="feature-icon">🎓</div>
+        <h3>Learning Hub</h3>
+        <p>Stocks, SIPs, Mutual Funds, Risk vs Return — explained simply with real-life examples.</p>
+        <div class="feature-footer"><span class="feature-tag">Concepts</span><button class="feature-open" onclick="event.stopPropagation();openFeature('learning')">Start Learning</button></div>
+      </div>
+      <div class="feature-card" role="button" tabindex="0" data-feature="recommendation" onclick="openFeature('recommendation')" onkeydown="triggerFeatureFromKey(event,'recommendation')">
+        <div class="feature-icon">🤖</div>
+        <h3>Smart Recommendations</h3>
+        <p>Get a personalized plan that matches your budget, risk level and investment goal.</p>
+        <div class="feature-footer"><span class="feature-tag">Personalized</span><button class="feature-open" onclick="event.stopPropagation();openFeature('recommendation')">See Plan</button></div>
+      </div>
+      <div class="feature-card" role="button" tabindex="0" data-feature="simulator" onclick="openFeature('simulator')" onkeydown="triggerFeatureFromKey(event,'simulator')">
+        <div class="feature-icon">📈</div>
+        <h3>Future Projection Simulator</h3>
+        <p>Preview how your SIP could grow over time with a simple future wealth calculator.</p>
+        <div class="feature-footer"><span class="feature-tag">Calculator</span><button class="feature-open" onclick="event.stopPropagation();openFeature('simulator')">Try Simulator</button></div>
+      </div>
+      <div class="feature-card" role="button" tabindex="0" data-feature="mistakes" onclick="openFeature('mistakes')" onkeydown="triggerFeatureFromKey(event,'mistakes')">
+        <div class="feature-icon">⚠️</div>
+        <h3>Mistake Detector</h3>
+        <p>Get warned about common beginner mistakes before they cost you money.</p>
+        <div class="feature-footer"><span class="feature-tag">Alerts</span><button class="feature-open" onclick="event.stopPropagation();openFeature('mistakes')">View Alerts</button></div>
+      </div>
+      <div class="feature-card" role="button" tabindex="0" data-feature="roadmap" onclick="openFeature('roadmap')" onkeydown="triggerFeatureFromKey(event,'roadmap')">
+        <div class="feature-icon">🗺️</div>
+        <h3>Smart Roadmap</h3>
+        <p>A step-by-step investing path tailored to your profile and goals.</p>
+        <div class="feature-footer"><span class="feature-tag">Action Plan</span><button class="feature-open" onclick="event.stopPropagation();openFeature('roadmap')">Open Roadmap</button></div>
+      </div>
+    </div>
+  </div>
+  <div id="feature-toast" class="feature-toast" aria-live="polite"></div>
+  <footer>© 2025 Involife · Built for Beginners · No financial advice, just smart guidance</footer>
+</div>
+
+<!-- ===== ONBOARDING ===== -->
+<div id="onboarding" class="page">
+  <div class="onboarding-wrap">
+    <div class="step-indicator">
+      <div class="step-dot active" id="dot0"></div>
+      <div class="step-line"></div>
+      <div class="step-dot" id="dot1"></div>
+      <div class="step-line"></div>
+      <div class="step-dot" id="dot2"></div>
+      <div class="step-line"></div>
+      <div class="step-dot" id="dot3"></div>
+      <div class="step-line"></div>
+      <div class="step-dot" id="dot4"></div>
+    </div>
+
+    <!-- Step 0: Experience -->
+    <div class="onb-step active" id="step0">
+      <div class="step-count" id="step-count">Step 1 of 5</div>
+      <h2 class="onb-title">What's your investing experience?</h2>
+      <p class="onb-sub">Be honest — there's no wrong answer. This helps us personalize everything.</p>
+      <div class="option-grid">
+        <div class="option-btn" data-key="experience" data-value="beginner" onclick="selectOption(this,'experience','beginner')">
+          <div class="option-icon">🌱</div>
+          <div><h4>Complete Beginner</h4><p>I've never invested before, or just starting to learn</p></div>
+        </div>
+        <div class="option-btn" data-key="experience" data-value="intermediate" onclick="selectOption(this,'experience','intermediate')">
+          <div class="option-icon">📈</div>
+          <div><h4>Some Experience</h4><p>I've done a bit of research or maybe invested once or twice</p></div>
+        </div>
+      </div>
+      <div class="onb-nav">
+        <div></div>
+        <button class="btn-primary" onclick="nextStep(1)">Continue →</button>
+      </div>
+    </div>
+
+    <!-- Step 1: Budget -->
+    <div class="onb-step" id="step1">
+      <div class="step-count">Step 2 of 5</div>
+      <h2 class="onb-title">Monthly investment budget?</h2>
+      <p class="onb-sub">How much can you comfortably invest each month? Even ₹500 is a great start.</p>
+      <div class="budget-input-wrap">
+        <span class="budget-prefix">₹</span>
+        <input type="number" class="budget-input" id="budgetInput" placeholder="5000" min="100" oninput="saveBudget(this.value)">
+      </div>
+      <p class="budget-hint">Tip: Start with at least ₹500/month. You can always increase later.</p>
+      <div class="option-grid" style="margin-top:1.5rem;">
+        <div class="option-btn" data-budget="500" onclick="setBudgetPreset(500)"><div class="option-icon">🌱</div><div><h4>₹500/month</h4><p>Just getting started</p></div></div>
+        <div class="option-btn" data-budget="2000" onclick="setBudgetPreset(2000)"><div class="option-icon">💼</div><div><h4>₹2,000/month</h4><p>Student / Part-time</p></div></div>
+        <div class="option-btn" data-budget="5000" onclick="setBudgetPreset(5000)"><div class="option-icon">💰</div><div><h4>₹5,000/month</h4><p>Entry-level professional</p></div></div>
+        <div class="option-btn" data-budget="10000" onclick="setBudgetPreset(10000)"><div class="option-icon">🚀</div><div><h4>₹10,000+/month</h4><p>Established earner</p></div></div>
+      </div>
+      <div class="onb-nav">
+        <button class="btn-ghost" onclick="prevStep(0)">← Back</button>
+        <button class="btn-primary" onclick="nextStep(2)">Continue →</button>
+      </div>
+    </div>
+
+    <!-- Step 2: Risk -->
+    <div class="onb-step" id="step2">
+      <div class="step-count">Step 3 of 5</div>
+      <h2 class="onb-title">What's your risk tolerance?</h2>
+      <p class="onb-sub">Higher risk can mean higher returns — but also higher losses. What suits you?</p>
+      <div class="option-grid">
+        <div class="option-btn" data-key="risk" data-value="low" onclick="selectOption(this,'risk','low')">
+          <div class="option-icon">🛡️</div>
+          <div><h4>Low Risk</h4><p>I want safety first. Slow, steady growth is fine.</p></div>
+        </div>
+        <div class="option-btn" data-key="risk" data-value="medium" onclick="selectOption(this,'risk','medium')">
+          <div class="option-icon">⚖️</div>
+          <div><h4>Medium Risk</h4><p>I'm okay with some ups and downs for better returns.</p></div>
+        </div>
+        <div class="option-btn" data-key="risk" data-value="high" onclick="selectOption(this,'risk','high')">
+          <div class="option-icon">🔥</div>
+          <div><h4>High Risk</h4><p>I want maximum growth and can handle volatility.</p></div>
+        </div>
+      </div>
+      <div class="onb-nav">
+        <button class="btn-ghost" onclick="prevStep(1)">← Back</button>
+        <button class="btn-primary" onclick="nextStep(3)">Continue →</button>
+      </div>
+    </div>
+
+    <!-- Step 3: Goal -->
+    <div class="onb-step" id="step3">
+      <div class="step-count">Step 4 of 5</div>
+      <h2 class="onb-title">What's your investment goal?</h2>
+      <p class="onb-sub">Your goal shapes everything — the strategy, the timeline, the amount.</p>
+      <div class="option-grid">
+        <div class="option-btn" data-key="goal" data-value="wealth" onclick="selectOption(this,'goal','wealth')">
+          <div class="option-icon">🏆</div>
+          <div><h4>Build Long-term Wealth</h4><p>10+ years, retirement, financial independence</p></div>
+        </div>
+        <div class="option-btn" data-key="goal" data-value="saving" onclick="selectOption(this,'goal','saving')">
+          <div class="option-icon">🏠</div>
+          <div><h4>Save for a Big Purchase</h4><p>3–7 years, house, car, education</p></div>
+        </div>
+        <div class="option-btn" data-key="goal" data-value="short" onclick="selectOption(this,'goal','short')">
+          <div class="option-icon">⚡</div>
+          <div><h4>Short-term Returns</h4><p>1–2 years, emergency buffer, quick growth</p></div>
+        </div>
+      </div>
+      <div class="onb-nav">
+        <button class="btn-ghost" onclick="prevStep(2)">← Back</button>
+        <button class="btn-primary" onclick="nextStep(4)">Continue →</button>
+      </div>
+    </div>
+
+    <!-- Step 4: Duration -->
+    <div class="onb-step" id="step4">
+      <div class="step-count">Step 5 of 5</div>
+      <h2 class="onb-title">What's your investment duration?</h2>
+      <p class="onb-sub">This helps us recommend the right investment type and timeline.</p>
+      <div class="option-grid">
+        <div class="option-btn" data-key="duration" data-value="short" onclick="selectOption(this,'duration','short')">
+          <div class="option-icon">⚡</div>
+          <div><h4>Short-term</h4><p>Less than 3 years. You may need the money soon.</p></div>
+        </div>
+        <div class="option-btn" data-key="duration" data-value="medium" onclick="selectOption(this,'duration','medium')">
+          <div class="option-icon">⏳</div>
+          <div><h4>Medium-term</h4><p>3 to 7 years. Balanced growth with moderate flexibility.</p></div>
+        </div>
+        <div class="option-btn" data-key="duration" data-value="long" onclick="selectOption(this,'duration','long')">
+          <div class="option-icon">🚀</div>
+          <div><h4>Long-term</h4><p>7+ years. Better suited for equity and compounding.</p></div>
+        </div>
+      </div>
+      <div class="onb-nav">
+        <button class="btn-ghost" onclick="prevStep(3)">← Back</button>
+        <button class="btn-primary" onclick="finishOnboarding()">See My Results 🎉</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DASHBOARD ===== -->
+<div id="dashboard" class="page">
+  <div class="dash-wrap">
+    <div class="dash-header">
+      <h1 id="dash-greeting">Welcome back!</h1>
+      <p id="dash-sub">Here's your investment readiness overview</p>
+    </div>
+    <div class="profile-card">
+      <div class="profile-item"><div class="k">Experience</div><div class="v" id="profile-exp">—</div></div>
+      <div class="profile-item"><div class="k">Monthly Budget</div><div class="v" id="profile-budget">—</div></div>
+      <div class="profile-item"><div class="k">Risk</div><div class="v" id="profile-risk">—</div></div>
+      <div class="profile-item"><div class="k">Goal</div><div class="v" id="profile-goal">—</div></div>
+    </div>
+    <div class="profile-actions">
+      <button class="btn-primary" onclick="showPage('onboarding')">Make Changes</button>
+      <button class="btn-danger" onclick="clearUserData()">Clear Profile Data</button>
+    </div>
+    <div class="next-step-card">
+      <h3>Next Step</h3>
+      <p id="next-step-copy">Complete onboarding to unlock your next action.</p>
+      <div class="action-row">
+        <button class="btn-primary" onclick="showPage('recommendation')">View Recommendation</button>
+        <button class="btn-secondary" onclick="showPage('recommendation'); setTimeout(() => document.querySelector('.sim-card').scrollIntoView({behavior:'smooth', block:'start'}), 120);">Start SIP Plan</button>
+      </div>
+    </div>
+
+    <div class="dash-top">
+      <div class="score-card">
+        <div class="score-label">Investment Readiness Score</div>
+        <div class="score-ring" id="score-ring">
+          <div class="score-ring-inner">
+            <div class="score-num" id="readiness-num">0<span>/100</span></div>
+          </div>
+        </div>
+        <div class="score-bar-wrap">
+          <div class="score-bar-bg"><div class="score-bar-fill" id="readiness-bar" style="width:0%"></div></div>
+        </div>
+        <p class="score-msg" id="readiness-msg">Complete onboarding to see your score.</p>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon">💰</div>
+        <div class="metric-title">Monthly Budget</div>
+        <div class="metric-value" id="metric-budget">—</div>
+        <div class="metric-sub">Ready to invest</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-icon">🎯</div>
+        <div class="metric-title">Confidence Level</div>
+        <div class="metric-value" id="conf-label">—</div>
+        <div class="conf-bar" id="conf-bar"></div>
+      </div>
+    </div>
+
+    <div class="dash-grid">
+      <div class="learn-cards">
+        <h3>Quick Learning Cards</h3>
+        <div class="learn-item" onclick="goLearn('stocks')">
+          <div class="learn-item-icon">📈</div>
+          <div><h4>Stock Market Basics</h4><p>Ownership, returns, risk and when prices move</p></div>
+          <div class="arrow-btn">›</div>
+        </div>
+        <div class="learn-item" onclick="goLearn('mf')">
+          <div class="learn-item-icon">🧺</div>
+          <div><h4>Mutual Funds</h4><p>Diversification, NAV and why beginners choose them</p></div>
+          <div class="arrow-btn">›</div>
+        </div>
+        <div class="learn-item" onclick="goLearn('sip')">
+          <div class="learn-item-icon">🔄</div>
+          <div><h4>SIP Explained</h4><p>How monthly investing builds long-term wealth</p></div>
+          <div class="arrow-btn">›</div>
+        </div>
+        <div class="learn-item" onclick="goLearn('risk')">
+          <div class="learn-item-icon">⚖️</div>
+          <div><h4>Risk vs Return</h4><p>Choose risk level based on your timeline and goals</p></div>
+          <div class="arrow-btn">›</div>
+        </div>
+      </div>
+
+      <div class="warnings-card">
+        <h3>⚠️ Watch Out For</h3>
+        <div id="warnings-container"></div>
+      </div>
+    </div>
+
+    <div class="roadmap-card" style="margin-top:1.5rem;">
+      <h3>🗺️ Your Smart Investment Roadmap</h3>
+      <div id="roadmap-container"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== LEARNING HUB ===== -->
+<div id="learning" class="page">
+  <div class="learn-wrap">
+    <h1 style="font-size:2rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:-0.02em;">Learning Hub</h1>
+    <p style="color:var(--muted);margin-bottom:2rem;font-size:0.95rem;">Simple explanations with real-life examples — no jargon.</p>
+
+    <div class="topic-tabs">
+      <button class="tab-btn active" onclick="showTopic('stocks', this)">📈 Stocks</button>
+      <button class="tab-btn" onclick="showTopic('mf', this)">🧺 Mutual Funds</button>
+      <button class="tab-btn" onclick="showTopic('sip', this)">🔄 SIP</button>
+      <button class="tab-btn" onclick="showTopic('risk', this)">⚖️ Risk vs Return</button>
+    </div>
+
+    <!-- STOCKS -->
+    <div class="topic-content active" id="topic-stocks">
+      <div class="topic-hero">
+        <div>
+          <h2>📈 Stock Market Basics</h2>
+          <p>A stock is a small piece of ownership in a company. If the company grows, your share can become more valuable. If it struggles, your investment can fall.</p>
+        </div>
+        <div class="topic-hero-media">
+          <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-stock-market-graphs-on-screen-32854-large.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <h4>What is a Stock?</h4>
+          <ul><li>You own a small part of the company</li><li>Share price can rise or fall daily</li><li>Best suited for long-term investors</li></ul>
+        </div>
+        <div class="topic-card">
+          <h4>How Does it Trade?</h4>
+          <ul><li>Bought and sold on NSE/BSE</li><li>Price changes due to demand and supply</li><li>Short-term movement is normal</li></ul>
+        </div>
+        <div class="topic-card">
+          <h4>How Do You Make Money?</h4>
+          <p><strong>Capital Gains:</strong> Buy at ₹100, sell at ₹150 → ₹50 profit. <br><strong>Dividends:</strong> Some companies share profits with shareholders periodically.</p>
+        </div>
+        <div class="topic-card">
+          <h4>Risks to Know</h4>
+          <p>Stock prices can fall sharply. Individual companies can go bankrupt. Short-term volatility is normal — the market always moves up and down.</p>
+        </div>
+      </div>
+      <div class="example-box">
+        <h4>💡 Real-Life Example</h4>
+        <p>Imagine Zomato IPO in 2021. Early investors bought at ₹76. Even though it fell initially, patient investors who held through understood the business and saw recovery. Stock investing rewards patience and research.</p>
+      </div>
+    </div>
+
+    <!-- MUTUAL FUNDS -->
+    <div class="topic-content" id="topic-mf">
+      <div class="topic-hero">
+        <div>
+          <h2>🧺 Mutual Funds</h2>
+          <p>Mutual funds pool money from many investors and spread it across stocks or bonds, making them easier and safer for beginners than selecting single stocks.</p>
+        </div>
+        <div class="topic-hero-media">
+          <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-person-using-a-calculator-and-counting-money-4474-large.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <h4>Types of Mutual Funds</h4>
+          <ul><li>Equity: higher growth, higher volatility</li><li>Debt: more stable, lower return</li><li>Hybrid: balance between both</li></ul>
+        </div>
+        <div class="topic-card">
+          <h4>What is NAV?</h4>
+          <ul><li>NAV is one unit's price</li><li>It changes daily</li><li>You invest based on units, not share count</li></ul>
+        </div>
+        <div class="topic-card">
+          <h4>Expense Ratio</h4>
+          <p>The annual fee the fund charges (usually 0.1%–2.5%). Lower is better. Index funds typically have very low expense ratios (~0.1%).</p>
+        </div>
+        <div class="topic-card">
+          <h4>Why Mutual Funds?</h4>
+          <p>No need to research individual stocks. Professionally managed. Highly diversified. You can start with just ₹500/month via SIP.</p>
+        </div>
+      </div>
+      <div class="example-box">
+        <h4>💡 Real-Life Example</h4>
+        <p>Parag Parikh Flexi Cap Fund has delivered ~18% annual returns over 5 years. If you invested ₹5000/month via SIP for 5 years (₹3 lakh total), you'd have approximately ₹4.8 lakh — a gain of ₹1.8 lakh just by staying consistent.</p>
+      </div>
+    </div>
+
+    <!-- SIP -->
+    <div class="topic-content" id="topic-sip">
+      <div class="topic-hero">
+        <div>
+          <h2>🔄 SIP — Systematic Investment Plan</h2>
+          <p>SIP means investing a fixed amount every month. It keeps investing simple, reduces timing mistakes and makes compounding easier over the long run.</p>
+        </div>
+        <div class="topic-hero-media">
+          <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?auto=format&fit=crop&w=1200&q=80">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-calculator-and-money-rolling-on-the-table-40789-large.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <h4>How SIP Works</h4>
+          <ul><li>A fixed amount is invested every month</li><li>You buy more units when prices are lower</li><li>Consistency matters more than timing</li></ul>
+        </div>
+        <div class="topic-card">
+          <h4>Rupee Cost Averaging</h4>
+          <ul><li>Down market: buy more units</li><li>Up market: buy fewer units</li><li>Average cost improves over time</li></ul>
+        </div>
+        <div class="topic-card">
+          <h4>Power of Compounding</h4>
+          <p>Your returns earn returns. ₹500/month at 12% for 20 years = ₹4.99 lakh total invested → ~₹49 lakh at maturity. That's the magic of compounding.</p>
+        </div>
+        <div class="topic-card">
+          <h4>Starting a SIP</h4>
+          <p>Download Groww or Zerodha. Complete KYC (Aadhaar + PAN). Choose a fund. Set monthly amount & date. Done — takes ~15 minutes!</p>
+        </div>
+      </div>
+      <div class="example-box">
+        <h4>💡 Real-Life Example</h4>
+        <p>Riya, 22, starts a SIP of ₹2000/month in a Nifty 50 Index Fund at 12% average return. By age 42 (20 years), her ₹4.8 lakh investment grows to ~₹19.8 lakh. She beat inflation, built an emergency corpus, and never had to think about timing the market.</p>
+      </div>
+    </div>
+
+    <!-- RISK vs RETURN -->
+    <div class="topic-content" id="topic-risk">
+      <div class="topic-hero">
+        <div>
+          <h2>⚖️ Risk vs Return</h2>
+          <p>Higher return potential usually comes with higher risk. The right choice depends on how long you can stay invested and how much volatility you can handle.</p>
+        </div>
+        <div class="topic-hero-media">
+          <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80">
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-financial-graphs-on-a-smartphone-screen-4585-large.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <div class="topic-grid">
+        <div class="topic-card">
+          <h4>Low Risk Investments</h4>
+          <ul><li>Examples: FD, PPF, Debt Funds</li><li>Returns: around 4-7%</li><li>Safer, but may not beat inflation</li></ul>
+        </div>
+        <div class="topic-card">
+          <h4>Medium Risk Investments</h4>
+          <ul><li>Examples: Hybrid or balanced funds</li><li>Returns: around 10-14%</li><li>Good for 3-7 year goals</li></ul>
+        </div>
+        <div class="topic-card">
+          <h4>High Risk Investments</h4>
+          <p><strong>Stocks, Small-cap Funds</strong><br>Return: 15–25%+ annually<br>Risk: High volatility. Can lose 30-50% in bad years.</p>
+        </div>
+        <div class="topic-card">
+          <h4>Diversification</h4>
+          <p>Don't put all eggs in one basket. Spread across asset classes — equity + debt + gold — to reduce risk without sacrificing too much return.</p>
+        </div>
+      </div>
+      <div class="example-box">
+        <h4>💡 Risk Rule of Thumb</h4>
+        <p>Subtract your age from 100 to get your ideal equity allocation. At 25: 75% in equity, 25% in debt. At 50: 50% equity, 50% debt. As you age, protect your wealth by shifting to safer assets.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== RECOMMENDATION ENGINE ===== -->
+<div id="recommendation" class="page">
+  <div class="rec-wrap">
+    <h1 style="font-size:2rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:-0.02em;">Your Investment Plan</h1>
+    <p style="color:var(--muted);margin-bottom:2.5rem;font-size:0.95rem;">Personalized based on your risk profile and goals</p>
+
+    <div class="rec-card" id="rec-main">
+      <div class="rec-header">
+        <div class="rec-icon" id="rec-icon">📊</div>
+        <div>
+          <h2 id="rec-title">Complete Onboarding First</h2>
+          <p id="rec-subtitle">Go through onboarding to get your personalized recommendation</p>
+        </div>
+      </div>
+      <div class="rec-type" id="rec-type-badge">—</div>
+      <div class="monthly-plan" id="rec-plan">
+        <div class="plan-item"><div class="pval" id="plan-monthly">—</div><div class="plbl">MONTHLY SIP</div></div>
+        <div class="plan-item"><div class="pval" id="plan-horizon">—</div><div class="plbl">TIMELINE</div></div>
+        <div class="plan-item"><div class="pval" id="plan-expected">—</div><div class="plbl">EXPECTED RETURN</div></div>
+      </div>
+      <ul class="reasoning-list" id="rec-reasons"></ul>
+      <button class="btn-primary" style="margin-top:1.5rem;width:100%;" onclick="document.querySelector('.sim-card').scrollIntoView({behavior:'smooth', block:'start'})">Start SIP Now</button>
+    </div>
+
+    <!-- SIMULATOR -->
+    <div class="sim-card">
+      <h3 style="font-size:1.2rem;font-weight:700;margin-bottom:0.5rem;">📈 Future Projection Simulator</h3>
+      <p style="color:var(--muted);font-size:0.85rem;margin-bottom:1.5rem;">See how your money could grow over time (estimated based on historical averages)</p>
+      <div class="sim-inputs">
+        <div class="input-group">
+          <label>Monthly Investment (₹)</label>
+          <input type="number" class="sim-input" id="sim-amount" value="2000" oninput="updateSimulator()">
+        </div>
+        <div class="input-group">
+          <label>Investment Period (Years)</label>
+          <input type="number" class="sim-input" id="sim-years" value="10" min="1" max="40" oninput="updateSimulator()">
+        </div>
+      </div>
+      <div class="sim-results">
+        <div class="sim-val"><div class="v" id="sim-invested">₹—</div><div class="l">Total Invested</div></div>
+        <div class="sim-val"><div class="v" id="sim-returns">₹—</div><div class="l">Est. Returns (12%)</div></div>
+        <div class="sim-val"><div class="v" id="sim-total">₹—</div><div class="l">Final Value</div></div>
+      </div>
+      <div class="chart-wrap">
+        <div class="chart-bars" id="sim-chart"></div>
+      </div>
+      <p style="font-size:0.75rem;color:var(--muted);margin-top:0.75rem;">* Based on 12% average annual return (historical Nifty 50 average). Actual returns may vary. Not financial advice.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PLATFORMS PAGE ===== -->
+<div id="platforms" class="page">
+  <div class="plat-wrap">
+    <h1 style="font-size:2rem;font-weight:700;margin-bottom:0.5rem;letter-spacing:-0.02em;">Investment Platforms</h1>
+    <p style="color:var(--muted);margin-bottom:2.5rem;font-size:0.95rem;">The best apps to start investing in India — compared for beginners.</p>
+    <div class="plat-grid">
+      <div class="plat-card" data-platform="zerodha">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#387ed1,#5ba4f5);"></div>
+        <div class="plat-logo">🔵</div>
+        <div class="plat-name">Zerodha</div>
+        <div class="plat-tagline">India's Largest Stockbroker</div>
+        <div class="plat-match">Best for you</div>
+        <span class="plat-tag tag-pro">Best for Active Traders</span>
+        <div class="pros-cons">
+          <div class="pro">No commissions on equity delivery</div>
+          <div class="pro">Kite platform is powerful & fast</div>
+          <div class="pro">Coin for direct mutual funds</div>
+          <div class="con">Interface can overwhelm beginners</div>
+          <div class="con">₹20 charge per F&O trade</div>
+        </div>
+        <a class="plat-link" href="https://zerodha.com" target="_blank">Open Zerodha Account →</a>
+      </div>
+      <div class="plat-card" data-platform="groww">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#00b386,#00d9a5);"></div>
+        <div class="plat-logo">🟢</div>
+        <div class="plat-name">Groww</div>
+        <div class="plat-tagline">Simplest for Beginners</div>
+        <div class="plat-match">Best for you</div>
+        <span class="plat-tag tag-best">⭐ Best for Beginners</span>
+        <div class="pros-cons">
+          <div class="pro">Extremely simple, beautiful UI</div>
+          <div class="pro">Mutual funds in 2 minutes</div>
+          <div class="pro">Great educational content</div>
+          <div class="con">Limited advanced tools</div>
+          <div class="con">Newer platform, less history</div>
+        </div>
+        <a class="plat-link" href="https://groww.in" target="_blank">Open Groww Account →</a>
+      </div>
+      <div class="plat-card" data-platform="angelone">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#f5a623,#f7c45e);"></div>
+        <div class="plat-logo">🟡</div>
+        <div class="plat-name">Angel One</div>
+        <div class="plat-tagline">Smart Investing with AI</div>
+        <div class="plat-match">Best for you</div>
+        <span class="plat-tag tag-pro">Best for Research</span>
+        <div class="pros-cons">
+          <div class="pro">SmartAPI for algorithmic trading</div>
+          <div class="pro">Free research reports</div>
+          <div class="pro">ARQ AI recommendation engine</div>
+          <div class="con">Interface feels dated</div>
+          <div class="con">Customer service can be slow</div>
+        </div>
+        <a class="plat-link" href="https://angelone.in" target="_blank">Open Angel One Account →</a>
+      </div>
+      <div class="plat-card" data-platform="upstox">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#7c3aed,#a78bfa);"></div>
+        <div class="plat-logo">🟣</div>
+        <div class="plat-name">Upstox</div>
+        <div class="plat-tagline">Fast & Commission-Free</div>
+        <div class="plat-match">Best for you</div>
+        <span class="plat-tag tag-best">Best Value</span>
+        <div class="pros-cons">
+          <div class="pro">Zero brokerage on delivery trades</div>
+          <div class="pro">Modern, fast trading platform</div>
+          <div class="pro">Backed by Ratan Tata & Tiger Global</div>
+          <div class="con">Can be glitchy during market peaks</div>
+          <div class="con">Mutual fund UI less polished</div>
+        </div>
+        <a class="plat-link" href="https://upstox.com" target="_blank">Open Upstox Account →</a>
+      </div>
+    </div>
+
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:2rem;margin-top:2rem;">
+      <h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1rem;">📋 Quick Comparison</h3>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border);">
+              <th style="text-align:left;padding:0.75rem;color:var(--muted);font-weight:600;letter-spacing:0.04em;">Platform</th>
+              <th style="text-align:center;padding:0.75rem;color:var(--muted);font-weight:600;">Beginner Friendly</th>
+              <th style="text-align:center;padding:0.75rem;color:var(--muted);font-weight:600;">Mutual Funds</th>
+              <th style="text-align:center;padding:0.75rem;color:var(--muted);font-weight:600;">Stocks</th>
+              <th style="text-align:center;padding:0.75rem;color:var(--muted);font-weight:600;">Brokerage (Delivery)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:0.75rem;font-weight:600;">Groww</td>
+              <td style="text-align:center;padding:0.75rem;">⭐⭐⭐⭐⭐</td>
+              <td style="text-align:center;padding:0.75rem;color:var(--green);">✓</td>
+              <td style="text-align:center;padding:0.75rem;color:var(--green);">✓</td>
+              <td style="text-align:center;padding:0.75rem;">Zero</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:0.75rem;font-weight:600;">Zerodha</td>
+              <td style="text-align:center;padding:0.75rem;">⭐⭐⭐</td>
+              <td style="text-align:center;padding:0.75rem;color:var(--green);">✓</td>
+              <td style="text-align:center;padding:0.75rem;color:var(--green);">✓</td>
+              <td style="text-align:center;padding:0.75rem;">Zero</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:0.75rem;font-weight:600;">Angel One</td>
+              <td style="text-align:center;padding:0.75rem;">⭐⭐⭐⭐</td>
+              <td style="text-align:center;padding:0.75rem;color:var(--green);">✓</td>
+              <td style="text-align:center;padding:0.75rem;color:var(--green);">✓</td>
+              <td style="text-align:center;padding:0.75rem;">Zero</td>
+            </tr>
+            <tr>
+              <td style="padding:0.75rem;font-weight:600;">Upstox</td>
+              <td style="text-align:center;padding:0.75rem;">⭐⭐⭐⭐</td>
+              <td style="text-align:center;padding:0.75rem;color:var(--green);">✓</td>
+              <td style="text-align:center;padding:0.75rem;color:var(--green);">✓</td>
+              <td style="text-align:center;padding:0.75rem;">Zero</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <footer>© 2025 Involife · Built for Beginners · All links are third-party services, not affiliated.</footer>
+</div>
+
+<script src="work.js"></script>
+</body>
+</html>
